@@ -1,1 +1,1 @@
-jar 'org.reflections:reflections', '0.9.11'
+jar 'com.google.guava:guava', '25.1-jre'

@@ -1,0 +1,9 @@
+
+Rubyfx
+  has a version number
+[]
+  does something useful
+
+Finished in 0.64989 seconds (files took 1.62 seconds to load)
+2 examples, 0 failures
+

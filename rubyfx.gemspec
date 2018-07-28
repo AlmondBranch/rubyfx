@@ -6,6 +6,7 @@ require "rubyfx/version"
 Gem::Specification.new do |spec|
   spec.name          = "rubyfx"
   spec.version       = Rubyfx::VERSION
+  spec.platform      = 'java'
   spec.authors       = ["Scott Haney"]
   spec.email         = ["emailalmondbranch@gmail.com"]
 

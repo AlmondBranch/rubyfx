@@ -9,15 +9,11 @@ import 'rubyfx.java.Application'
 
 module Rubyfx
   ApplicationShim.setStart do |stage|
-    url = java.io.File.new('/home/ubuntu/code/projects/rubyfx/lib/rubyfx/application.fxml').toURI.toURL
+    url = java.io.File.new('application.fxml').toURI.toURL
     loader = javafx.fxml.FXMLLoader.new(url)
 
-    root = javafx.scene.layout.AnchorPane.new
-    stage.scene = javafx.scene.Scene.new(root)
-    loader.root = root
-    loader.load
-
-    #stage.scene = javafx.scene.Scene.new(loader.load)
+    stage.scene = javafx.scene.Scene.new(loader.load)
+    stage.scene.lookup('#test_button').text = "Updated"
 
     stage.width = 300
     stage.height = 600

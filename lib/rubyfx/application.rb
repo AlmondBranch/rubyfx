@@ -13,6 +13,8 @@ module Rubyfx
     loader = javafx.fxml.FXMLLoader.new(url)
 
     stage.scene = javafx.scene.Scene.new(loader.load)
+    stage.scene.getStylesheets.add('main.css')
+
     stage.scene.lookup('#test_button').text = "Updated"
 
     stage.width = 300

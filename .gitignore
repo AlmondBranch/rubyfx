@@ -51,3 +51,6 @@ build-iPhoneSimulator/
 
 # jbundler
 .jbundler/
+
+# java
+*.class

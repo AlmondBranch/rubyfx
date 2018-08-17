@@ -6,7 +6,9 @@ RSpec::Core::RakeTask.new(:spec)
 JAVA_FILES = Rake::FileList.new("java/**/*.java")
 
 task :default => :build_java
- 
-task :build_java => JAVA_FILES do
+
+directory 'lib/rubyfx/classes'
+
+task :build_java => [*JAVA_FILES, 'lib/rubyfx/classes'] do
   sh "javac #{JAVA_FILES} -d lib/rubyfx/classes"
 end

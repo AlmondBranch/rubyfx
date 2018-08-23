@@ -39,19 +39,4 @@ module Rubyfx
       end
     end
   end
-
-  class App < RubyfxApplication
-    def setup_stage(stage)
-      stage.scene.lookup('#test_button').text = "Updated"
-
-      stage.width = 300
-      stage.height = 600
-    end
-  end
-
-  app = App.new
-  app.fxml = 'application.fxml'
-  app.css = 'main.css'
-
-  app.launch
 end

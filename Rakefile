@@ -16,4 +16,10 @@ end
 
 Warbler::Task.new('jar', Warbler::Config.new do |config|
   config.jar_name = 'rubyfx'
+  config.bundler = false
+
+  config.features = %w(compiled)
+  
+  config.java_classes.include(File.join(File.dirname(__FILE__), 'lib/rubyfx/classes/rubyfx/java/*.class'))
+  config.pathmaps.java_classes = ["rubyfx/java/%f"]
 end)

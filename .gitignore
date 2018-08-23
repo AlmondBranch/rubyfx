@@ -57,3 +57,4 @@ build-iPhoneSimulator/
 
 # java
 *.class
+rubyfx.jar

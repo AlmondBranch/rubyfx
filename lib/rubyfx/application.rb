@@ -8,19 +8,50 @@ import 'rubyfx.java.Application'
 # java.lang.System.setProperty("javafx.verbose", 'true')
 
 module Rubyfx
-  ApplicationShim.setStart do |stage|
-    url = java.io.File.new('application.fxml').toURI.toURL
-    loader = javafx.fxml.FXMLLoader.new(url)
+  class RubyfxApplication
+    attr_accessor :fxml, :css
 
-    stage.scene = javafx.scene.Scene.new(loader.load)
-    stage.scene.getStylesheets.add('main.css')
+    def setup_stage(stage)
+    end
 
-    stage.scene.lookup('#test_button').text = "Updated"
+    def launch
+      set_start
+      javafx.application.Application.launch(Application.java_class, java.lang.String[0].new)
+    end
 
-    stage.width = 300
-    stage.height = 600
-    stage.show
+    private
+    
+    def set_start
+      ApplicationShim.setStart do |stage|
+        loader =
+          if fxml
+            url = java.io.File.new(fxml).toURI.toURL
+            javafx.fxml.FXMLLoader.new(url)
+          else
+            javafx.fxml.FXMLLoader.new()
+          end
+        
+        stage.scene = javafx.scene.Scene.new(loader.load)
+        stage.scene.getStylesheets.add(css) unless css.nil?
+
+        setup_stage(stage)
+        stage.show
+      end
+    end
   end
 
-  javafx.application.Application.launch(Application.java_class, java.lang.String[0].new)
+  class App < RubyfxApplication
+    def setup_stage(stage)
+      stage.scene.lookup('#test_button').text = "Updated"
+
+      stage.width = 300
+      stage.height = 600
+    end
+  end
+
+  app = App.new
+  app.fxml = 'application.fxml'
+  app.css = 'main.css'
+
+  app.launch
 end

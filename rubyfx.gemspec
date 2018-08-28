@@ -24,8 +24,7 @@ Gem::Specification.new do |spec|
       "public gem pushes."
   end
 
-  puts File.join(File.dirname(__FILE__), 'lib\**\*.*')
-  spec.files         = Dir[File.join(File.dirname(__FILE__), 'lib/**/*.rb')]
+  spec.files         = Dir[File.join(File.dirname(__FILE__), 'lib/**/*.{rb,class}')]
   
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }

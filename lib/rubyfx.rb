@@ -1,17 +1,21 @@
 require "rubyfx/version"
-require 'java'
-require 'jbundler'
 
-import 'javafx.util.Duration'
-import 'com.google.common.reflect.ClassPath'
+require 'rubyfx/application'
 
-module Rubyfx
-  loader = Duration.new(500).getClass.getClassLoader
-  cp = ClassPath.from(loader)
 
-  cp.getAllClasses().asList.each do |ci|
-    if (ci.package_name.match(/^javafx./) && !ci.name.match(/\$/))
-      puts ci.name
-    end
-  end
-end
+# require 'java'
+# require 'jbundler'
+
+# import 'javafx.util.Duration'
+# import 'com.google.common.reflect.ClassPath'
+
+# module Rubyfx
+  # loader = Duration.new(500).getClass.getClassLoader
+  # cp = ClassPath.from(loader)
+
+  # cp.getAllClasses().asList.each do |ci|
+  #   if (ci.package_name.match(/^javafx./) && !ci.name.match(/\$/))
+  #     puts ci.name
+  #   end
+  # end
+# end

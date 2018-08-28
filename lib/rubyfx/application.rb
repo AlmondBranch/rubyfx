@@ -1,5 +1,5 @@
 require 'java'
-$CLASSPATH << 'classes'
+$CLASSPATH << File.dirname(__FILE__) + '/classes'
 
 import 'com.sun.javafx.application.LauncherImpl'
 import 'rubyfx.java.ApplicationShim'
